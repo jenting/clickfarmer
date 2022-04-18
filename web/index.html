@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Click farming node: {{ .Name }}</title>
+        <link rel="stylesheet" href="static/styles.css">
+        <script src="static/script.js"></script>
+    </head>
+
+    <body>
+        <h1>Click farming node: {{ .Name  }}</h1>
+
+        <h2>Current click counts:<h2>
+        <ul>
+        {{ range $color := .Colors }}
+        <li class="color-label" id="color-label-{{ $color }}">{{ $color }}: 0</li>
+        {{ end }}
+        </ul>
+
+        <h2>Help us farm more clicks:<h2>
+        {{ range $color := .Colors }}
+        <div class="color-button color-button-{{ $color }}"
+            onclick="colorClicked('{{ $color  }}')">{{ $color}}</div>
+        {{ end }}
+    </body>
+
+</html>

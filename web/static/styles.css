@@ -1,0 +1,23 @@
+h1, h2 {
+    text-align: center;
+}
+
+.color-button {
+    width: 300px;
+    height: 100px;
+    cursor: pointer;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid black;
+    color: white;
+}
+.color-button-red {
+    background-color: red;
+}
+.color-button-green {
+    background-color: green;
+}
+.color-button-blue {
+    background-color: blue;
+}
+

@@ -1,0 +1,31 @@
+// Copyright (C) 2021 Storj Labs, Inc.
+// See LICENSE for copying information.
+
+syntax = "proto3";
+option go_package = ".;pb";
+
+package clickfarmer;
+
+service ClickFarmer {
+    rpc GetClicks(GetClicksRequest) returns (GetClicksResponse) {}
+    rpc SetClicks(SetClicksRequest) returns (SetClicksResponse) {}
+}
+
+message ClickCounts {
+    int64 red = 1;
+    int64 green = 2;
+    int64 blue = 3;
+}
+
+message GetClicksRequest {}
+
+message GetClicksResponse {
+    ClickCounts clickCounts = 1;
+}
+
+message SetClicksRequest {
+    ClickCounts clickCounts = 1;
+}
+
+message SetClicksResponse {}
+
