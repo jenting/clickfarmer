@@ -28,11 +28,11 @@ func (a *APIServer) getClicksHandler(ctx context.Context, w http.ResponseWriter,
 }
 
 func (a *APIServer) clickColorHandler(ctx context.Context, w http.ResponseWriter, r *http.Request, color string) {
-	a.cache.mu.Lock()
-	defer a.cache.mu.Unlock()
-
 	switch r.Method {
 	case http.MethodGet:
+		a.cache.mu.RLock()
+		defer a.cache.mu.RUnlock()
+
 		w.Header().Set("Content-Type", "text/plain")
 		count := int64(0)
 		switch color {
@@ -47,6 +47,9 @@ func (a *APIServer) clickColorHandler(ctx context.Context, w http.ResponseWriter
 		return
 
 	case http.MethodPut:
+		a.cache.mu.Lock()
+		defer a.cache.mu.Unlock()
+
 		switch color {
 		case "red":
 			a.cache.values.Red++

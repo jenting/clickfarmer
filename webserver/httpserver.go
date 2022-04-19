@@ -37,7 +37,7 @@ func Run(ctx context.Context, httpAddr, rpcAddr, webdir string, cacheInterval ti
 }
 
 type Cache struct {
-	mu     sync.Mutex
+	mu     sync.RWMutex
 	loop   *sync2.Cycle
 	values JSONClicks
 }

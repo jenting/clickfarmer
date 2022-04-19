@@ -35,13 +35,13 @@ func Run(ctx context.Context, rpcAddr string) error {
 type ClickFarmerDatabase struct {
 	pb.ClickFarmerServer
 
-	mu                                 sync.Mutex
+	mu                                 sync.RWMutex
 	redClicks, greenClicks, blueClicks int64
 }
 
 func (s *ClickFarmerDatabase) GetClicks(ctx context.Context, r *pb.GetClicksRequest) (*pb.GetClicksResponse, error) {
-	s.mu.Lock()
-	defer s.mu.Unlock()
+	s.mu.RLock()
+	defer s.mu.RUnlock()
 
 	return &pb.GetClicksResponse{
 		ClickCounts: &pb.ClickCounts{
