@@ -56,6 +56,9 @@ func (s *ClickFarmerDatabase) SetClicks(ctx context.Context, r *pb.SetClicksRequ
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	// TODO
+	s.redClicks = r.ClickCounts.Red
+	s.greenClicks = r.ClickCounts.Green
+	s.blueClicks = r.ClickCounts.Blue
+
 	return &pb.SetClicksResponse{}, nil
 }
