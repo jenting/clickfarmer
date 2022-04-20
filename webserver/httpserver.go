@@ -80,18 +80,27 @@ func (a *APIServer) refreshCache(ctx context.Context) error {
 	a.cache.mu.Lock()
 	defer a.cache.mu.Unlock()
 
-	_, err := a.clickFarmer.SetClicks(ctx, &pb.SetClicksRequest{
-		ClickCounts: &pb.ClickCounts{
-			Red:   a.cache.values.Red,
-			Green: a.cache.values.Green,
-			Blue:  a.cache.values.Blue,
-		},
-	})
+	getRes, err := a.clickFarmer.GetClicks(ctx, &pb.GetClicksRequest{})
 	if err != nil {
 		return err
 	}
 
-	getRes, err := a.clickFarmer.GetClicks(ctx, &pb.GetClicksRequest{})
+	if a.cache.values.Red-getRes.ClickCounts.Red > 0 ||
+		a.cache.values.Green-getRes.ClickCounts.Green > 0 ||
+		a.cache.values.Blue-getRes.ClickCounts.Blue > 0 {
+		_, err := a.clickFarmer.SetClicks(ctx, &pb.SetClicksRequest{
+			ClickCounts: &pb.ClickCounts{
+				Red:   a.cache.values.Red,
+				Green: a.cache.values.Green,
+				Blue:  a.cache.values.Blue,
+			},
+		})
+		if err != nil {
+			return err
+		}
+	}
+
+	getRes, err = a.clickFarmer.GetClicks(ctx, &pb.GetClicksRequest{})
 	if err != nil {
 		return err
 	}
