@@ -1,3 +1,6 @@
+tasks:
+  - name: Build
+    init: make
 github:
   prebuilds:
     addBadge: true
