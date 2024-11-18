@@ -8,6 +8,6 @@ require (
 	golang.org/x/sync v0.9.0
 	google.golang.org/genproto v0.0.0-20240227224415-6ceb2ff114de // indirect
 	google.golang.org/grpc v1.65.0
-	google.golang.org/protobuf v1.35.1
+	google.golang.org/protobuf v1.35.2
 	storj.io/common v0.0.0-20210316160403-0666ae8f365d
 )
