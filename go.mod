@@ -6,7 +6,7 @@ toolchain go1.23.4
 
 require (
 	github.com/golang/protobuf v1.5.4
-	github.com/spf13/cobra v1.8.1
+	github.com/spf13/cobra v1.9.1
 	golang.org/x/sync v0.11.0
 	google.golang.org/grpc v1.65.0
 	google.golang.org/protobuf v1.36.5
@@ -17,7 +17,7 @@ require (
 	github.com/calebcase/tmpfile v1.0.2-0.20200602150926-3af473ef8439 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/spacemonkeygo/monkit/v3 v3.0.10 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/zeebo/errs v1.2.2 // indirect
 	golang.org/x/net v0.33.0 // indirect
