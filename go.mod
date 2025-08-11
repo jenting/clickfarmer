@@ -9,7 +9,7 @@ require (
 	github.com/spf13/cobra v1.9.1
 	golang.org/x/sync v0.16.0
 	google.golang.org/grpc v1.74.2
-	google.golang.org/protobuf v1.36.6
+	google.golang.org/protobuf v1.36.7
 	storj.io/common v0.0.0-20210316160403-0666ae8f365d
 )
 
