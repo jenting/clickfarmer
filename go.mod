@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/golang/protobuf v1.5.4
 	github.com/spf13/cobra v1.10.2
-	golang.org/x/sync v0.18.0
+	golang.org/x/sync v0.19.0
 	google.golang.org/grpc v1.77.0
 	google.golang.org/protobuf v1.36.10
 	storj.io/common v0.0.0-20210316160403-0666ae8f365d
